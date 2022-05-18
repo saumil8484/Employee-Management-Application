@@ -1,0 +1,14 @@
+select, textarea, input, #errorMessage  /*To set width of typing box*/
+{
+    width: 300px;
+}
+
+#male, #female     /*To set width of radio buttons and checkboxes*/
+{
+    width: 16px;
+}
+
+.fieldError /*To highlight the box in which there is an error*/
+{
+    border: 1px solid red;
+}

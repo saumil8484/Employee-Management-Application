@@ -1,0 +1,11 @@
+/*CSS file of employee-list*/
+#listTable
+{
+    text-align: center;
+}
+
+#highlightRow :hover
+{
+    background-color: whitesmoke;
+    color: black;
+}

@@ -1,0 +1,64 @@
+<div class="text-center">
+    <div class="container">
+        <h4>Employee List</h4>
+    </div>
+</div>
+
+    <table class="table" id="listTable">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email ID</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Username</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Qualification</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Native Language</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="highlightRow">
+            <tr *ngFor="let row of employeeData">
+                <td>{{row.firstname}}</td>
+                <td>{{row.lastname}}</td>
+                <td>{{row.emailaddress}}</td>
+                <td>{{row.contactno}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.username}}</td>
+                <td>{{row.gender}}</td>
+                <td>{{row.qualification}}</td>
+                <td>{{row.experience}}</td>
+                <td>{{row.language}}</td>
+                <td>
+                    <button class="btn btn-success" routerLink="editEmployee/{{row.id}}" title="Edit details"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="openDeleteModal(deleteTemplate)" title="Delete details"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    <ng-template #deleteTemplate>
+                        <div class="modal-body text-center">
+                            <p>Are you sure you permanently delete {{row.firstname}} {{row.lastname}}'s details?</p>
+                            <button type="button" class="btn btn-danger" (click)="deleteEmployeeDetails(row, deleteMessageTemplate)" >Yes</button>&nbsp;
+                            <ng-template #deleteMessageTemplate>
+                                <div class="modal-body text-center">
+                                    <p>Details of {{row.firstname}} {{row.lastname}} are permanently deleted !</p>
+                                    <button type="button" class="btn btn-primary" (click)="close()" >Ok</button>
+                                </div>
+                            </ng-template>
+                            <button type="button" class="btn btn-primary" (click)="close()" >No</button>
+                        </div>
+                    </ng-template>                      
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    <br/>
+    <div class="text-center">
+        <button class="btn btn-primary float-right" routerLink="addEmployee" title="Add New Employee details">Add Employee</button>
+    </div>
+    <br/>
+    <br/>
